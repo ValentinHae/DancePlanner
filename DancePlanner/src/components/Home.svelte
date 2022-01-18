@@ -1,17 +1,23 @@
 <script>
-  
+  let tanzstil = '';
+  let stadt = '';
+  let range = 50;
 </script>
-
 
 <h1>Tanzevents suchen</h1>
 <div class="textinput">
-  <input type=text id="Tanzstil" placeholder="Tanzstil">
-  <input type=text id="Stadt" placeholder="Stadt">
+  <input type=text id="Tanzstil" placeholder="Tanzstil" bind:value={tanzstil}>
+  <input type=text id="Stadt" placeholder="Stadt" bind:value={stadt}>
 </div>
 <div class="slidecontainer">
   <p>Umgebung</p>
-  <input type="range" min="1" max="100" value="50" class="slider" id="range">
-  <p>Umkreis: <span id="rangeOutput"></span></p>
+  <input type="range" min="0" max="100" bind:value={range} step="5" class="slider" id="range">
+  <p>Umkreis: {range}km</p>
+  <p>{tanzstil} & {stadt}</p>
+</div>
+<div class=output>
+  <hr>
+  <p>Karten</p>
 </div>
 
 <link
@@ -34,6 +40,13 @@
     font-weight: 100;
     text-align: center;
   }
+  #Tanzstil{
+    margin-top:4em;  
+    margin-bottom: 4em;
+  }
+  #Stadt{
+    margin-bottom:1.5em;
+  }
   input[type=text] {
     width: 60%;
     display: block;
@@ -43,25 +56,26 @@
     margin-left: auto;
     margin-right: auto;
     transition: width 0.4s ease-in-out;
-    margin-bottom: 4em;
   }
   input[type=text]:focus {
     background-color: whitesmoke;
     outline: none;
-    width: 70%;
+    width: 65%;
   }
   input:focus::placeholder {
   color: transparent;
   }
+
   .slidecontainer {
-  width: 100%; /* Width of the outside container */
+  width: 100%;
+  margin-bottom: 4em;
   }
   input[type=range] {
     width: 60%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 4em;
+    margin-bottom: 2em;
     -webkit-appearance: none;
     appearance: none;
     height: 25px;

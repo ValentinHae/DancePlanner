@@ -1,16 +1,24 @@
-<ul>
+<div class="navbar">
+  <ul>
     <li><a href="default.asp">Logo</a></li>
     <li id="r"><a href="about.asp">About</a></li>
     <li id="r"><a href="telegram.asp">Telegram</a></li>
 </ul>
+</div>
 
 <style>
 
+.navbar {
+  overflow: hidden;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  background-color: #000000;
+  } 
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     background-color: #000000;
   }    
 li {
