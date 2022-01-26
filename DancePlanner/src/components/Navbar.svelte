@@ -1,9 +1,9 @@
 <div class="navbar">
   <ul>
-    <li><a href="default.asp">Logo</a></li>
+    <img id="logo"src="DanceLogo.svg" alt="Logo" height=32px href="danceplanner.asp">
     <li id="r"><a href="about.asp">About</a></li>
     <li id="r"><a href="telegram.asp">Telegram</a></li>
-</ul>
+  </ul>
 </div>
 
 <style>
@@ -13,6 +13,7 @@
   top: 0;
   position: fixed;
   width: 100%;
+  z-index: 100;
   background-color: #000000;
   } 
 ul {
@@ -24,7 +25,7 @@ ul {
 li {
     display: inline;
     display: block;
-    float: left
+    float: left;
 }
 a {
   display: block;
@@ -33,13 +34,17 @@ a {
 }
 
 #r {
-  display: block;
-  color: white;
   float: right;
 }
 
 li a:hover {
   background-color: darkgray;
+}
+
+#logo{
+  margin-left: 2em;
+  margin-top: 5px;
+  overflow: visible;
 }
 
 </style>

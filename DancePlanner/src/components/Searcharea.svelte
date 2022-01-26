@@ -1,23 +1,40 @@
 <script>
+  import { onMount } from 'svelte';
+	import { fade, fly } from 'svelte/transition';
+  import DanceTyper from "@/components/Typeahead.svelte"
+  import StadtTyper from "@/components/Typeaheadcity.svelte"
+
+  let visible = true,
+			onLoad = false
+	onMount(() => {
+		setTimeout(() => onLoad = true, 50)
+	})
+
   let tanzstil = '';
   let stadt = '';
   let range = 50;
 </script>
 
-<h1>Tanzevents suchen</h1>
+{#if onLoad && visible}
+	<h1 class="load" in:fly="{{ y: 100, duration: 700 }}" out:fade>
+		Tanzevents suchen
+  </h1>
+{/if}
+
 <div class="textinput">
-  <input type=text id="Tanzstil" placeholder="Tanzstil" bind:value={tanzstil}>
-  <input type=text id="Stadt" placeholder="Stadt" bind:value={stadt}>
+  <!--<input type=text id="Tanzstil" placeholder="Tanzstil" bind:value={tanzstil}>-->
+  <DanceTyper />
+  <!--<input type=text id="Stadt" placeholder="Stadt" bind:value={stadt}>-->
+  <StadtTyper />
 </div>
 <div class="slidecontainer">
   <p>Umgebung</p>
-  <input type="range" min="0" max="100" bind:value={range} step="5" class="slider" id="range">
+  <input type="range" min="1" max="100" bind:value={range} step="1" class="slider" id="range">
   <p>Umkreis: {range}km</p>
-  <p>{tanzstil} & {stadt}</p>
 </div>
 <div class=output>
   <hr>
-  <p>Karten</p>
+  <h2>Alle Tanzevents</h2>
 </div>
 
 <link
@@ -40,7 +57,15 @@
     font-weight: 100;
     text-align: center;
   }
-  #Tanzstil{
+  h2 {
+    color: black;
+    text-transform: uppercase;
+    font-size: 3em;
+    font-weight: 100;
+    text-align: center;
+    margin: 1em; 
+  }
+  /*#Tanzstil{
     margin-top:4em;  
     margin-bottom: 4em;
   }
@@ -61,7 +86,7 @@
     background-color: whitesmoke;
     outline: none;
     width: 65%;
-  }
+  }*/
   input:focus::placeholder {
   color: transparent;
   }
@@ -84,6 +109,7 @@
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   }
   .slider:hover {
   opacity: 1;
