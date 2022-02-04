@@ -1,5 +1,5 @@
 // Imports
-import { Bot } from "./deps.ts";
+import { Bot, GitRequestConfig, getCurrentFileContent, updateFileContent } from "./deps.ts";
 import "https://deno.land/x/dotenv/load.ts";
 
 // Set Enviromental Variables
@@ -26,9 +26,10 @@ bot.command('help', (ctx) => ctx.reply(
 ));
 
 // CreateEvent-Command-Handler
-bot.command('createEvent', (ctx) => ctx.reply(
-   `Hi, ... \nHow can I help you. Use the following commands for getting more Informationen: \n/help \n/createEvent`
-));
+bot.command('createEvent', async (ctx, next) => {
+   ctx.reply(`Perfect, could you please state the Title of the Event?`);
+   
+});
 
 // Reply to any message Error-Message.
 bot.on("message", async (ctx) => {
