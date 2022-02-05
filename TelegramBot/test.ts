@@ -1,38 +1,26 @@
-import {
-  TelegramBot,
-  UpdateType,
-} from "https://deno.land/x/telegram_bot_api/mod.ts";
+import { Bot, session, Context, NextFunction, Composer }from "https://deno.land/x/grammy/mod.ts";
+const bot = new Bot("5036428272:AAHFhqKICq7VNpz-ZUX516s5HUGS40lJ_3s");
+const composer = new Composer();
 
-/**
- * This example shows how to run bot using long polling mechanism.
- * Polling parameter accepts the same parameters like described in docs
- * @see https://core.telegram.org/bots/api#getupdates.
- * Or just pass `true`, then polling will be run with bot default parameters:
- * {
- *   timeout: 30,
- * }
- */
+bot.command("start", (ctx) => ctx.reply("Started!"));
+bot.command("help", (ctx) => ctx.reply("Help text"));
+/** Measures the response time of the bot, and logs it to `console` */
+async function responseTime(
+  ctx: Context,
+  next: NextFunction, // is an alias for: () => Promise<void>
+): Promise<void> {
+  // take time before
+  const before = Date.now(); // milliseconds
+  // invoke downstream middleware
+  await next(); // make sure to `await`!
+  // take time after
+  const after = Date.now(); // milliseconds
+  // log difference
+  console.log(`Response time: ${after - before} ms`);
+}
+composer.use(responseTime);
+bot.use(composer);
+bot.on(":text", (ctx) => ctx.reply("Text!")); // (*)
+bot.on(":photo", (ctx) => ctx.reply("Photo!"));
 
-const TOKEN = Deno.env.get("TOKEN");
-if (!TOKEN) throw new Error("Bot token is not provided");
-const bot = new TelegramBot(TOKEN);
-
-// UpdateType supports all telegram update types https://core.telegram.org/bots/api#update
-bot.on(UpdateType.Message, async ({ message }) => {
-  const chatId = message.chat.id;
-
-  await bot.sendSticker({
-    chat_id: chatId,
-    sticker:
-      "CAACAgIAAxkBAAL8WV75-kCnWs9hcYMfI9ate169VHLsAAJdAgAC3PKrB6IOmSPgo_bnGgQ",
-  });
-});
-
-// if webhook was set up before, it should be deleted prior to switching to polling
-await bot.deleteWebhook();
-
-bot.run({
-  polling: {
-    timeout: 60,
-  },
-});
+bot.start();
