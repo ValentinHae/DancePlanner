@@ -1,4 +1,6 @@
+### Plannung der Conversationen mit Nutzer und Plannung der Datenspeicherung
 bot:
+	```
 	/start --> "Hi, ... you can use the following commands:
 			1. /help 
 			2. /createEvent"
@@ -25,4 +27,5 @@ bot:
 						Bild Git Hochloaden, Namen in JSON	<-
 	-> Lat && Long
 
+	```
 --> Speicherung als JSON --> Apending in eine Liste speicherung in einer Datei --> Upload der Datei auf GitHub mit den Bildern
