@@ -40,4 +40,6 @@ Source-Code of the Bot: https://github.com/ValentinHae/DancePlanner/blob/main/Te
 --> Speicherung als JSON --> Apending in eine Liste speicherung in einer Datei --> Upload der Datei auf GitHub mit den Bildern
 
 ### Open Points
-<ul> Tests for Bot-Steps
+<ul> Tests for Bot-Steps </ul>
+<ul> Inline Keyboards </ul>
+<ul> Inline Queries </ul>
