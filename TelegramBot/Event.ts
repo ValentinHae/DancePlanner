@@ -1,19 +1,3 @@
-export interface DanceEvents{
-    id: String,
-    title: String,
-    dances: String,
-    startDate: String,
-    city: String,
-    countryCode: String,
-    lat: Number,
-    lon: Number,
-    street: String,
-    housenumber: String,
-    startTime: String,
-    link: String,
-    chatLink: String
-};
-
 export class DanceEvent{
     // Attributes
     public id: String;
