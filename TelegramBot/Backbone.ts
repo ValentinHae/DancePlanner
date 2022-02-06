@@ -4,9 +4,6 @@ import {
     updateFileContent
 } from "https://deno.land/x/git_hub_file_requests@v0.1.2/mod.ts";
 import {
-    config
-} from "https://deno.land/x/dotenv/mod.ts";
-import {
     DanceEvent
 } from "./Event.ts";
 
