@@ -13,7 +13,7 @@ import "https://deno.land/x/dotenv/load.ts";
 
 // Get Enviromental-Variables
 const TOKEN = Deno.env.get("TELEGRAM_TOKEN") as string;
-const GitHub = new GitRequestConfig("ValentinHae", "DancePlanner", "Events.json")
+const GitHub: GitRequestConfig = new GitRequestConfig("ValentinHae", "DancePlanner", "Events.json");
 
 //Variables
 let current_Question_ID: number 
