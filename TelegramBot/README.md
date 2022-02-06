@@ -1,3 +1,11 @@
+### Project Structure
+
+Providing of Non-public-Enviromental Variables in .env -File:
+(Template for the Env-File: https://github.com/ValentinHae/DancePlanner/blob/main/.env.template)
+
+Providing of Project-Interfacce in Events.ts (https://github.com/ValentinHae/DancePlanner/blob/main/TelegramBot/Event.ts)
+
+Source-Code of the Bot: https://github.com/ValentinHae/DancePlanner/blob/main/TelegramBot/mod.ts
 ### Einarbeitung in Deno & Telegram-Bot & Grammy
 
 
