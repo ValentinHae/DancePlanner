@@ -7,5 +7,6 @@ The Aim of the Application is to create Dance-Events via Telegram and to invite 
 
 #### Struktur der Application
 
-Telegram-Bot Source-Code: https://github.com/ValentinHae/DancePlanner/tree/main/TelegramBot \n
+Telegram-Bot Source-Code: https://github.com/ValentinHae/DancePlanner/tree/main/TelegramBot
+
 Svelte-Webpage: https://github.com/ValentinHae/DancePlanner/tree/main/DancePlanner
