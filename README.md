@@ -11,3 +11,10 @@ Telegram-Bot Source-Code: https://github.com/ValentinHae/DancePlanner/tree/main/
 &emsp; - Deeper Information in the Bot ReadMe (https://github.com/ValentinHae/DancePlanner/blob/main/TelegramBot/README.md)
 
 Svelte-Webpage: https://github.com/ValentinHae/DancePlanner/tree/main/DancePlanner
+
+
+## Deploying of the Application 
+
+### Telegrambot
+Add the Telegrambot on Telegram: @Dance_Event_Planning_Bot <br />
+Hosted by: 
