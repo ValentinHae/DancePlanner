@@ -7,7 +7,7 @@ import {
     SessionFlavor,
 } from "./deps.ts";
 
-// Import from auto Enviroment-Variable-Processing-Libary
+// Import from auto Enviroment-Variable-Processing-Libary@Deno-Standard-Libary
 import "https://deno.land/x/dotenv/load.ts";
 
 // Import from usid@eru123
@@ -23,26 +23,33 @@ import {
 
 
 
-// Get Enviromental-Variables
+// Get Enviromental-Variables as CONST
+// Get the Telegram-Bot-Token
 const TOKEN = Deno.env.get("TELEGRAM_TOKEN") as string;
-const GitHub: GitRequestConfig = new GitRequestConfig("ValentinHae", "DancePlanner", "Events.json");
-
-//Variables
-let current_Question_ID: number
-let buffer = new Array();
-
+const GITHUB: GitRequestConfig = new GitRequestConfig("ValentinHae", "DancePlanner", "Events.json");
 // Setting Context of the Session
 type MyContext = Context & SessionFlavor < DanceEvent > ;
 
 const bot = new Bot < MyContext > (TOKEN);
 
-bot.use(session());
+//Variables
+let currentQuestionId: number
+let buffer = new Array();
 
+// Bot - Programming
 
 // Start Command
 bot.filter(ctx => ctx.chat?.type === 'private').command('start', async ctx => {
     let x = await ctx.reply(
         `Hi,\nHow can I help you. Use the following commands for getting more Informationen: \n/help \n/createEvent`
+    );
+
+});
+
+// Help Command
+bot.filter(ctx => ctx.chat?.type === 'private').command('help', async ctx => {
+    let x = await ctx.reply(
+        `Hi,\nI'm able to create new Danceing Events, which will be shown on our Webpage.\nIf you want to create a new Event type: \n/createEvent`
     );
 
 });
@@ -56,7 +63,7 @@ bot.filter(ctx => ctx.chat?.type === 'private').command('createEvent', async ctx
             },
         }
     );
-    current_Question_ID = ctx.msg.message_id;
+    currentQuestionId = ctx.msg.message_id;
 });
 
 // Message Recieve Validation
@@ -64,7 +71,7 @@ bot.on("message", async (ctx) => {
     // Check if Message is reply of the Question:
     if (ctx.msg.reply_to_message) {
         let reply = ctx.msg.reply_to_message;
-        if ((current_Question_ID + 1) == reply.message_id) {
+        if ((currentQuestionId + 1) == reply.message_id) {
             let answer = ctx.msg.text;
             // Append answer to answer list
             buffer.push(answer);
@@ -77,7 +84,7 @@ bot.on("message", async (ctx) => {
                         },
                     }
                 );
-                current_Question_ID = ctx.msg.message_id;
+                currentQuestionId = ctx.msg.message_id;
             };
             //  StartDate-Attribute
             if (buffer.length == 2) {
@@ -88,7 +95,7 @@ bot.on("message", async (ctx) => {
                         },
                     }
                 );
-                current_Question_ID = ctx.msg.message_id;
+                currentQuestionId = ctx.msg.message_id;
             };
             // City-Attribute
             if (buffer.length == 3) {
@@ -99,7 +106,7 @@ bot.on("message", async (ctx) => {
                         },
                     }
                 );
-                current_Question_ID = ctx.msg.message_id;
+                currentQuestionId = ctx.msg.message_id;
             };
             // Country-Code-Attribute
             if (buffer.length == 4) {
@@ -110,7 +117,7 @@ bot.on("message", async (ctx) => {
                         },
                     }
                 );
-                current_Question_ID = ctx.msg.message_id;
+                currentQuestionId = ctx.msg.message_id;
             };
             // Street-Attribute
             if (buffer.length == 5) {
@@ -121,7 +128,7 @@ bot.on("message", async (ctx) => {
                         },
                     }
                 );
-                current_Question_ID = ctx.msg.message_id;
+                currentQuestionId = ctx.msg.message_id;
             };
             // House-Number-Attribute
             if (buffer.length == 6) {
@@ -132,7 +139,7 @@ bot.on("message", async (ctx) => {
                         },
                     }
                 );
-                current_Question_ID = ctx.msg.message_id;
+                currentQuestionId = ctx.msg.message_id;
             };
             // StartTime-Attribute
             if (buffer.length == 7) {
@@ -143,7 +150,7 @@ bot.on("message", async (ctx) => {
                         },
                     }
                 );
-                current_Question_ID = ctx.msg.message_id;
+                currentQuestionId = ctx.msg.message_id;
             };
             // Lat-Attribute
             if (buffer.length == 8) {
@@ -154,7 +161,7 @@ bot.on("message", async (ctx) => {
                         },
                     }
                 );
-                current_Question_ID = ctx.msg.message_id;
+                currentQuestionId = ctx.msg.message_id;
             };
             if (buffer.length == 9) {
                 // Create new ID:""}
@@ -176,7 +183,7 @@ bot.on("message", async (ctx) => {
                     link: buffer[8],
                     chatLink: ""
                 };
-                let repsonse = await updateContent(NewEvent, GitHub);
+                let repsonse = await updateContent(NewEvent, GITHUB);
                 // Give Response to User
                 if (repsonse !== 200) {
                     await ctx.reply(
@@ -187,13 +194,15 @@ bot.on("message", async (ctx) => {
                         `Thanks the Event has been saved and published at our Website. \nWe wish you a good Day and hope to see you there.`
                     );
                 };
+                // Clear the Buffer for new Object
+                buffer = [];
             };
         } else {
             console.error();
         }
     } else {
         // Get the chat identifier.
-        const chatId = ctx.msg.chat.id;
+        const chatId: number = ctx.msg.chat.id;
         await bot.api.sendMessage(chatId, `Sorry, I think I did not unstand what you are trying to say. \nIf you need help, please use /help.`);
     }
 

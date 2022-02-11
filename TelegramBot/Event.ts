@@ -44,4 +44,4 @@ export class DanceEvent{
             this.link = link;
             this.chatLink = chatLink;
     };
-}
+};
