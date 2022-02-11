@@ -9,7 +9,7 @@ import {
 
 
 const GitHub = new GitRequestConfig("ValentinHae", "DancePlanner", "Events.json")
-let Testcontent: Array < DanceEvent > = [{
+const TestContent: Array < DanceEvent > = [{
     "id": "1625108744123",
     "title": "Luc Sanou s Introduction to African Dance",
     "dances": "African dance",
@@ -57,7 +57,7 @@ console.log(newJSON)
 async function run() {
     let x: Array < DanceEvent > = JSON.parse(await getCurrentFileContent(GitHub));
     console.log(x);
-    let y = await updateFileContent(GitHub, JSON.stringify(Testcontent));
+    let y = await updateFileContent(GitHub, JSON.stringify(TestContent));
     console.log(`Content in File: ${x}\nStatusCode of Rest-Call: ${y}`);
 }
 // run();

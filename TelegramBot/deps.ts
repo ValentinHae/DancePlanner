@@ -1,3 +1,5 @@
+// external dependencies
+// Grammy-Module @grammyjs
 export {
     Bot,
     Context,
@@ -7,12 +9,7 @@ export type {
     SessionFlavor
 } from "https://deno.land/x/grammy/mod.ts";
 
-export type {
-    DanceEvent
-} from "./Event.ts"
-export {
-    updateContent
-} from "./GitTransfer.ts"
+// GitHub-File-Request-Module @tkister
 export {
     GitRequestConfig,
 } from "https://deno.land/x/git_hub_file_requests/mod.ts";
