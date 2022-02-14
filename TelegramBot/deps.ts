@@ -17,6 +17,4 @@ export {
 }from "https://deno.land/x/git_hub_file_requests/mod.ts";
 
 // Load Enviromental-Variable-Libary@pietvanzoen
-export {
-    config
-}from 'https://deno.land/x/dotenv/mod.ts';
+export * from "https://deno.land/x/dotenv/load.ts";
