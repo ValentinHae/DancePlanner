@@ -1,4 +1,4 @@
-export class DanceEvent{
+export default class DanceEvent{
     // Attributes
     public id: String;
     public title: String;

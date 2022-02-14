@@ -2,7 +2,7 @@ import {
     GitRequestConfig,
     getCurrentFileContent,
     updateFileContent
-} from "https://deno.land/x/git_hub_file_requests@v0.1.2/mod.ts";
+} from "./deps.ts";
 import {
     DanceEvent
 } from "./Event.ts";
