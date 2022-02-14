@@ -2,16 +2,10 @@
 import {
     Bot,
     Context,
-    session,
     GitRequestConfig,
     SessionFlavor,
+    config
 } from "./deps.ts";
-
-// Import from auto Enviroment-Variable-Processing-Libary@Deno-Standard-Libary
-import "https://deno.land/x/dotenv/load.ts";
-
-// Import from usid@eru123
-import USID from "https://deno.land/x/usid/mod.ts";
 
 // Import of internal dependencies
 import {
@@ -25,37 +19,43 @@ import {
 
 // Get Enviromental-Variables as CONST
 // Get the Telegram-Bot-Token
-const TOKEN = Deno.env.get("TELEGRAM_TOKEN") as string;
+const ENV = config();
+const TOKEN = ENV.TELEGRAM_TOKEN as string;
+// Create thee GitHub-Request-Repository
 const GITHUB: GitRequestConfig = new GitRequestConfig("ValentinHae", "DancePlanner", "Events.json");
 // Setting Context of the Session
 type MyContext = Context & SessionFlavor < DanceEvent > ;
+// create new Bot-Instance from the Grammy-Framework
+const BOT: Bot = new Bot < MyContext > (TOKEN);
 
-const bot = new Bot < MyContext > (TOKEN);
-
-//Variables
+// Definition of Global Variables
 let currentQuestionId: number
 let buffer = new Array();
 
-// Bot - Programming
-
+// Bot -Function Definition
 // Start Command
-bot.filter(ctx => ctx.chat?.type === 'private').command('start', async ctx => {
+BOT.filter(ctx => ctx.chat?.type === 'private').command('start', async ctx => {
     let x = await ctx.reply(
-        `Hi,\nHow can I help you. Use the following commands for getting more Informationen: \n/help \n/createEvent`
+        `Hi,
+        How can I help you. Use the following commands for getting more Informationen:
+        /help
+        /createEvent`
     );
-
 });
 
 // Help Command
-bot.filter(ctx => ctx.chat?.type === 'private').command('help', async ctx => {
+BOT.filter(ctx => ctx.chat?.type === 'private').command('help', async ctx => {
     let x = await ctx.reply(
-        `Hi,\nI'm able to create new Danceing Events, which will be shown on our Webpage.\nIf you want to create a new Event type: \n/createEvent`
+        `Hi,
+        I'm able to create new Danceing Events, which will be shown on our Webpage.
+        If you want to create a new Event type: 
+        /createEvent`
     );
 
 });
 
 // Create new Event
-bot.filter(ctx => ctx.chat?.type === 'private').command('createEvent', async ctx => {
+BOT.filter(ctx => ctx.chat?.type === 'private').command('createEvent', async ctx => {
     let x = await ctx.reply(
         `Perfect, could you please state the Title of the Event?`, {
             reply_markup: {
@@ -67,8 +67,8 @@ bot.filter(ctx => ctx.chat?.type === 'private').command('createEvent', async ctx
 });
 
 // Message Recieve Validation
-bot.on("message", async (ctx) => {
-    // Check if Message is reply of the Question:
+BOT.on("message", async (ctx) => {
+    // Check if Message is reply of a Question:
     if (ctx.msg.reply_to_message) {
         let reply = ctx.msg.reply_to_message;
         if ((currentQuestionId + 1) == reply.message_id) {
@@ -165,11 +165,10 @@ bot.on("message", async (ctx) => {
             };
             if (buffer.length == 9) {
                 // Create new ID:""}
-                let id = new USID();
-                let unique_id: string = id.uuid(15) as string;
+                let cryptoID : string = crypto.randomUUID() as string;
                 // Storage of the single Parts of the new Object
                 let NewEvent: DanceEvent = {
-                    id: unique_id,
+                    id: cryptoID,
                     title: buffer[0],
                     dances: buffer[1],
                     startDate: buffer[2],
@@ -183,9 +182,9 @@ bot.on("message", async (ctx) => {
                     link: buffer[8],
                     chatLink: ""
                 };
-                let repsonse = await updateContent(NewEvent, GITHUB);
+                let response = await updateContent(NewEvent, GITHUB);
                 // Give Response to User
-                if (repsonse !== 200) {
+                if (response !== 200) {
                     await ctx.reply(
                         `Sorry, an error Occoured please Contact the Support over our Webpage.`
                     );
@@ -199,16 +198,20 @@ bot.on("message", async (ctx) => {
             };
         } else {
             console.error();
-        }
+        };
     } else {
         // Get the chat identifier.
         const chatId: number = ctx.msg.chat.id;
-        await bot.api.sendMessage(chatId, `Sorry, I think I did not unstand what you are trying to say. \nIf you need help, please use /help.`);
-    }
+        await BOT.api.sendMessage(chatId, `Sorry, I think I did not unstand what you are trying to say. \nIf you need help, please use /help.`);
+    };
 
 });
 // Catch errors and log them
-bot.catch(err => console.error(err))
+BOT.catch(err => console.error(err))
 
 // Start bot!
-bot.start()
+BOT.start()
+
+if (import.meta.main){
+    console.log(TOKEN);
+}
