@@ -1,7 +1,7 @@
 <script>
   import Objects from "./Suggestions.svelte"
 
-  let tanzstile = [
+  let dancestyles = [
     'African dance',
     'All Dance Styles',
     'Afro House',
@@ -103,44 +103,44 @@
     ]
 
 
-	let tanzstileNew = [];
-	let tanzstileSearch = "";
+	let dancestylesNew = [];
+	let dancestylesSearch = "";
   let isFocused = false;
 
   const onFocus = () => isFocused=true;
   const onBlur = () => isFocused=false;
 
   const typeahead = () => {
-      let tanzstileNewIncludes = tanzstile.filter(tanzstile => tanzstile.toLowerCase().includes(tanzstileSearch.toLowerCase()) )
-      let tanzstileNewStartWith = tanzstile.filter(tanzstile => tanzstile.toLowerCase().startsWith(tanzstileSearch.toLowerCase()) )
-      tanzstileNew = tanzstileNewStartWith.sort().concat(tanzstileNewIncludes.sort())
-      tanzstileNew = [...new Set(tanzstileNew)]
+      let dancestylesNewIncludes = dancestyles.filter(dancestyles => dancestyles.toLowerCase().includes(dancestylesSearch.toLowerCase()) )
+      let dancestylesNewStartWith = dancestyles.filter(dancestyles => dancestyles.toLowerCase().startsWith(dancestylesSearch.toLowerCase()) )
+      dancestylesNew = dancestylesNewStartWith.sort().concat(dancestylesNewIncludes.sort())
+      dancestylesNew = [...new Set(dancestylesNew)]
   }
 
-  const newSearchInput = (tanzstil) => {
-    tanzstileSearch = tanzstil
+  const newSearchInput = (dancestyle) => {
+    dancestylesSearch = dancestyle
   }
 
   const randomDance = () => {
-    let randomDancestyle = tanzstile[Math.floor(Math.random()*tanzstile.length)]
-    tanzstileSearch = randomDancestyle
+    let randomDancestyle = dancestyles[Math.floor(Math.random()*dancestyles.length)]
+    dancestylesSearch = randomDancestyle
   }
 
 </script>
 
 <form autocomplete="off" action="/action_page.php">
   <div class="typeahead">
-    <input id="tanzstil" type="text" name="tanzstil" placeholder="Tanzstil" bind:value={tanzstileSearch} on:input={typeahead} on:focus={onFocus} on:blur={onBlur}>
+    <input id="dancestyle" type="text" name="dancestyle" placeholder="Tanzstil" bind:value={dancestylesSearch} on:input={typeahead} on:focus={onFocus} on:blur={onBlur}>
   </div>
   <ul class="typeahead-object-list" >
     {#if isFocused === true}
-      {#if tanzstileSearch.length === 0}
-        {#each tanzstile as tanzstil}
-          <Objects suggestionComponent={tanzstil} on:mousedown={() => newSearchInput(tanzstil)} />
+      {#if dancestylesSearch.length === 0}
+        {#each dancestyles as dancestyle}
+          <Objects suggestionComponent={dancestyle} on:mousedown={() => newSearchInput(dancestyle)} />
         {/each}
       {:else}
-        {#each tanzstileNew as tanzstil}
-          <Objects suggestionComponent={tanzstil} on:mousedown={() => newSearchInput(tanzstil)} />
+        {#each dancestylesNew as dancestyle}
+          <Objects suggestionComponent={dancestyle} on:mousedown={() => newSearchInput(dancestyle)} />
         {/each}
       {/if}
     {/if}

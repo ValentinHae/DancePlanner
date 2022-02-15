@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
   import DanceTyper from "@/components/Typeaheaddance.svelte"
-  import StadtTyper from "@/components/Typeaheadcity.svelte"
+  import CityTyper from "@/components/Typeaheadcity.svelte"
 
   let visible = true,
 			onLoad = false
@@ -23,7 +23,7 @@
 
 <div class="textinput">
   <DanceTyper />
-  <StadtTyper />
+  <CityTyper />
 </div>
 
 <div class="slidecontainer">
