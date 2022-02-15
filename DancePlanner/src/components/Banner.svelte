@@ -7,13 +7,12 @@
 </header>
 
 <style>
-img {
-    max-width: 100%;
-    height: auto;
-    display:block;
-    margin-left: auto;
-    margin-right: auto;   
-    margin-top: 1.5em;
-    
-  }
+    img {
+        max-width: 100%;
+        height: auto;
+        display:block;
+        margin-left: auto;
+        margin-right: auto;   
+        margin-top: 1.5em;
+    }
 </style>

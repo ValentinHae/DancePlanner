@@ -1,5 +1,5 @@
 <script>
-  import Objects from "./Tanzstile.svelte"
+  import Objects from "./Suggestions.svelte"
 
   let tanzstile = [
     'African dance',
@@ -136,11 +136,11 @@
     {#if isFocused === true}
       {#if tanzstileSearch.length === 0}
         {#each tanzstile as tanzstil}
-          <Objects object={tanzstil} on:mousedown={() => newSearchInput(tanzstil)} />
+          <Objects suggestionComponent={tanzstil} on:mousedown={() => newSearchInput(tanzstil)} />
         {/each}
       {:else}
         {#each tanzstileNew as tanzstil}
-          <Objects object={tanzstil} on:mousedown={() => newSearchInput(tanzstil)} />
+          <Objects suggestionComponent={tanzstil} on:mousedown={() => newSearchInput(tanzstil)} />
         {/each}
       {/if}
     {/if}
@@ -150,64 +150,64 @@
   <button on:click={() => {randomDance(); typeahead();}}><strong>Zufälligen Tanzstil erkunden</strong></button>
 </div>
 <style>
-.typeahead {
-  position: relative;
-}
-input{
-  margin-top: 4em;
-  margin-bottom:0;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
-input:hover{
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 8px, rgba(0, 0, 0, 0.23) 0px 4px 8px;
-}
-input[type=text] {
-  width: 60%;
-  display: block;
-  text-align: center;
-  border: 3px solid black;
-  border-radius: 0;
-  margin-left: auto;
-  margin-right: auto;
-  transition: width 0.4s ease-in-out;
-}
-input[type=text]:focus {
-    background-color: whitesmoke;
-    outline: none;
-    width: 65%;
+  .typeahead {
+    position: relative;
   }
-ul {
-  max-height: 215px;
-  overflow: auto;
-}
+  input{
+    margin-top: 4em;
+    margin-bottom:0;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+  input:hover{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 8px, rgba(0, 0, 0, 0.23) 0px 4px 8px;
+  }
+  input[type=text] {
+    width: 60%;
+    display: block;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 0;
+    margin-left: auto;
+    margin-right: auto;
+    transition: width 0.4s ease-in-out;
+  }
+  input[type=text]:focus {
+      background-color: whitesmoke;
+      outline: none;
+      width: 65%;
+    }
+  ul {
+    max-height: 215px;
+    overflow: auto;
+  }
 
-ul.typeahead-object-list {
-  position: absolute;
-  margin-left:17.5%;
-  margin-right:17.5%;
-  padding:0;
-  margin-top:0;
-  width:65%;
-  z-index: 99;
-  background-color: whitesmoke;
-}
+  ul.typeahead-object-list {
+    position: absolute;
+    margin-left:17.5%;
+    margin-right:17.5%;
+    padding:0;
+    margin-top:0;
+    width:65%;
+    z-index: 99;
+    background-color: whitesmoke;
+  }
 
-button {
-  width: 20%;
-  display: block;
-  text-align: center;
-  text-decoration: black;
-  border: 3px solid black;
-  border-radius: 0;
-  margin-top: 1em;
-  margin-left: auto;
-  margin-right: auto;
-  transition: width 0.4s ease-in-out;
-  background: rgb(149,65,131,0.3);
-  background: linear-gradient(90deg, rgba(149,65,131,0.3) 0%, rgba(191,166,227,0.3) 25%, rgba(125,185,241,0.3) 75%, rgba(68,109,137,0.3) 100%);
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
-button:hover{
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 8px, rgba(0, 0, 0, 0.23) 0px 4px 8px;
-}
+  button {
+    width: 20%;
+    display: block;
+    text-align: center;
+    text-decoration: black;
+    border: 3px solid black;
+    border-radius: 0;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    transition: width 0.4s ease-in-out;
+    background: rgb(149,65,131,0.3);
+    background: linear-gradient(90deg, rgba(149,65,131,0.3) 0%, rgba(191,166,227,0.3) 25%, rgba(125,185,241,0.3) 75%, rgba(68,109,137,0.3) 100%);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+  button:hover{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 8px, rgba(0, 0, 0, 0.23) 0px 4px 8px;
+  }
 </style>

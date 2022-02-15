@@ -7,44 +7,42 @@
 </div>
 
 <style>
-
-.navbar {
-  overflow: hidden;
-  top: 0;
-  position: fixed;
-  width: 100%;
-  z-index: 100;
-  background-color: #000000;
-  } 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  .navbar {
+    overflow: hidden;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
     background-color: #000000;
-  }    
-li {
-    display: inline;
+    } 
+  ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+    }    
+  li {
+      display: inline;
+      display: block;
+      float: left;
+  }
+  a {
     display: block;
-    float: left;
-}
-a {
-  display: block;
-  padding: 10px;
-  color: white;
-}
+    padding: 10px;
+    color: white;
+  }
 
-#r {
-  float: right;
-}
+  #r {
+    float: right;
+  }
 
-li a:hover {
-  background-color: darkgray;
-}
+  li a:hover {
+    background-color: darkgray;
+  }
 
-#logo{
-  margin-left: 2em;
-  margin-top: 5px;
-  overflow: visible;
-}
-
+  #logo{
+    margin-left: 2em;
+    margin-top: 5px;
+    overflow: visible;
+  }
 </style>

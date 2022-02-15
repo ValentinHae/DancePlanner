@@ -5,6 +5,7 @@
   import Search from "@/components/Searcharea.svelte";
   import Cards from "@/components/Cards.svelte"
   import Map from "@/components/Maps.svelte"
+  import Footer from "@/components/Footer.svelte"
 </script>
 
 <main transition:fade>
@@ -13,16 +14,9 @@
   <Search />
   <Cards />
   <Map />
+  <Footer />
 </main>
 <style>
-/*
-  main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
-  }*/
-
   @media (min-width: 640px) {
     main {
       max-width: none;

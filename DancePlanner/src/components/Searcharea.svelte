@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
-  import DanceTyper from "@/components/Typeahead.svelte"
+  import DanceTyper from "@/components/Typeaheaddance.svelte"
   import StadtTyper from "@/components/Typeaheadcity.svelte"
 
   let visible = true,
@@ -22,17 +22,17 @@
 {/if}
 
 <div class="textinput">
-  <!--<input type=text id="Tanzstil" placeholder="Tanzstil" bind:value={tanzstil}>-->
   <DanceTyper />
-  <!--<input type=text id="Stadt" placeholder="Stadt" bind:value={stadt}>-->
   <StadtTyper />
 </div>
+
 <div class="slidecontainer">
   <p>Umgebung</p>
   <input type="range" min="1" max="100" bind:value={range} step="1" class="slider" id="range">
   <p>Umkreis: {range}km</p>
 </div>
-<div class=output>
+
+<div class="output">
   <hr>
   <h2>Alle Tanzevents</h2>
 </div>
@@ -65,32 +65,6 @@
     text-align: center;
     margin: 1em; 
   }
-  /*#Tanzstil{
-    margin-top:4em;  
-    margin-bottom: 4em;
-  }
-  #Stadt{
-    margin-bottom:1.5em;
-  }
-  input[type=text] {
-    width: 60%;
-    display: block;
-    text-align: center;
-    border: 3px solid black;
-    border-radius: 0;
-    margin-left: auto;
-    margin-right: auto;
-    transition: width 0.4s ease-in-out;
-  }
-  input[type=text]:focus {
-    background-color: whitesmoke;
-    outline: none;
-    width: 65%;
-  }*/
-  input:focus::placeholder {
-  color: transparent;
-  }
-
   .slidecontainer {
   width: 100%;
   margin-bottom: 4em;
