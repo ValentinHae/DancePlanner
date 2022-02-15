@@ -7,7 +7,7 @@
 <div class="flip-card">
     <div class="flip-card-inner">
       <div class="flip-card-front">
-        <p>
+        <p id="title">
           <strong>{title}</strong>
         </p>
         <p>
@@ -42,7 +42,10 @@
     display:inline-block;
     background-color: transparent;
     perspective: 1000px; 
-    
+  }
+
+  #title {
+    font-size: 40px;
   }
 
   .flip-card-inner {
@@ -67,8 +70,11 @@
   }
 
   .flip-card-front {
-    background-color: white;
     color: black;
+    margin-top:auto;
+    border-radius: 5px 5px 5px 5px;
+    background: linear-gradient(90deg, rgba(149,65,131,0.2) 0%, rgba(191,166,227,0.2) 25%, rgba(125,185,241,0.2) 75%, rgba(68,109,137,0.2) 100%);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   }
 
   .flip-card-back {
