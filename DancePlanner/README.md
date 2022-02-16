@@ -19,7 +19,8 @@ Development of the web application using the svelte framework and its functional
 - Studying Svelte and parts of deno to start coding with full knowledge of the functionality
 - Coding the entire front-end: all svelte files to be combined into the web-page
 - Making it ready to be compatible with a json received from the back-end
-- Used publishable and reusable code to publish it on deno.land
+- Used publishable and reusable code to publish it on deno.land (Typeahead component: https://deno.land/x/svelte_typeahead@v0.1.0 & Map component: https://deno.land/x/svelte_map@v0.1.0)
+- Using Stack Overflow as tool for questions and also as an "archive" (while answering my own question) Question: https://stackoverflow.com/questions/71023128/importing-npm-node-js-packages-to-snel/71023225#71023225
 
 #### Challenges
 
