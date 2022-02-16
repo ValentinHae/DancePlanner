@@ -12,9 +12,15 @@ Telegram-Bot Source-Code: https://github.com/ValentinHae/DancePlanner/tree/main/
 
 Svelte-Webpage: https://github.com/ValentinHae/DancePlanner/tree/main/DancePlanner
 
+## How to use it
+
 ![image](https://user-images.githubusercontent.com/79450010/152698649-5d29b4a6-d90c-4a4a-88ce-5d427a760862.png)
 
-The Landing-page consists of the searcharea, where you can input your desired dancestyle and the city you want the event to be at, as well as a radius to also see events in close proximity. After you input your preferences, you are able to see the output in form of information cards down below. Each card is a summary of all important information regarding the event and shows you a marker on a map, where the event will take place.
+#### To search a dance event
+
+The Landing-page consists of the searcharea, where you can input your desired dancestyle and the city you want the event to be at, as well as a radius to also see events in close proximity. After you input your preferences, you are able to see the output in form of information cards down below. Each card is a summary of all important information regarding the event. Uppon hovering over the cards, a map appears, with a marker showing you the exact geolocation of the event.
+
+
 
 ## Deploying of the Application 
 
