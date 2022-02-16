@@ -1,15 +1,15 @@
 [{
-    id: "124124124",
-    title: "FOLK FEST CUBA SI",
-    dances: "Bachata, Salsa, Merengue",
-    startDate: "2022-01-30",
-    city: "Berlin",
-    countryCode: "Germany",
-    lat: 0,
-    lon: 0,
-    street: "TEST",
-    housenumber: "TEST",
-    startTime: "23:59",
-    link: "DancePlanner",
-    chatLink: ""
+    "id": "124124124",
+    "title": "FOLK FEST CUBA SI",
+    "dances": "Bachata, Salsa, Merengue",
+    "startDate": "2022-01-30",
+    "city": "Berlin",
+    "countryCode": "Germany",
+    "lat": 0,
+    "lon": 0,
+    "street": "TEST",
+    "housenumber": "TEST",
+    "startTime": "23:59",
+    "link": "DancePlanner",
+    "chatLink": ""
 };]
