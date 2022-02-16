@@ -1,8 +1,7 @@
 <div class="navbar">
   <ul>
     <img id="logo"src="DanceLogo.svg" alt="Logo" height=32px href="danceplanner.asp">
-    <li id="r"><a href="about.asp">About</a></li>
-    <li id="r"><a href="telegram.asp">Telegram</a></li>
+    <li id="r"><a href="https://t.me/Dance_Event_Planning_Bot">Telegram</a></li>
   </ul>
 </div>
 
