@@ -11,7 +11,7 @@ Telegram-Bot Source-Code (Tobias): https://github.com/ValentinHae/DancePlanner/t
 &emsp; - Deeper information in the Bot ReadMe (https://github.com/ValentinHae/DancePlanner/blob/main/TelegramBot/README.md)
 
 Svelte-Webpage (Valentin): https://github.com/ValentinHae/DancePlanner/tree/main/DancePlanner <br />
-&emsp; - Deeper information in the Webpage ReadMe (https://github.com/ValentinHae/DancePlanner/tree/main/DancePlanner)
+&emsp; - Deeper information in the Webpage ReadMe (https://github.com/ValentinHae/DancePlanner/blob/main/DancePlanner/README.md)
 
 ## How to use it
 
