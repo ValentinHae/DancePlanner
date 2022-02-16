@@ -40,6 +40,6 @@ We hope you have a nice time and a lot of fun dancing.
 ## Deploying of the Application 
 
 ### Telegrambot
-Add the Telegrambot on Telegram: @Dance_Event_Planning_Bot <br />
+Add the Telegrambot on Telegram: [@Dance_Event_Planning_Bot](https://t.me/Dance_Event_Planning_Bot) <br />
 Hosted by: Deno Deploy (If the Bot doesn`t reply please start him, by visiting https://dance-planner.deno.dev/)
 
