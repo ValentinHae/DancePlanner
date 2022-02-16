@@ -7,11 +7,11 @@ The Aim of the Application is to create Dance-Events via Telegram and to invite 
 
 #### Structure of the application
 
-Telegram-Bot Source-Code (Tobias): https://github.com/ValentinHae/DancePlanner/tree/main/TelegramBot<br />
-&emsp; - Deeper information in the Bot ReadMe (https://github.com/ValentinHae/DancePlanner/blob/main/TelegramBot/README.md)
+Telegram-Bot Source-Code (Tobias): [Code](https://github.com/ValentinHae/DancePlanner/tree/main/TelegramBot)<br />
+&emsp; - Deeper information in the [Bot ReadMe](https://github.com/ValentinHae/DancePlanner/blob/main/TelegramBot/README.md)
 
-Svelte-Webpage (Valentin): https://github.com/ValentinHae/DancePlanner/tree/main/DancePlanner <br />
-&emsp; - Deeper information in the Webpage ReadMe (https://github.com/ValentinHae/DancePlanner/blob/main/DancePlanner/README.md)
+Svelte-Webpage (Valentin): [Code](https://github.com/ValentinHae/DancePlanner/tree/main/DancePlanner) <br />
+&emsp; - Deeper information in the [Webpage ReadMe](https://github.com/ValentinHae/DancePlanner/blob/main/DancePlanner/README.md)
 
 ## How to use it
 
