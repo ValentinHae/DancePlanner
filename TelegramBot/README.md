@@ -5,12 +5,12 @@ Providing of Non-public-Enviromental Variables in .env -File:
 
 Providing of Project-Interfacce in Events.ts (https://github.com/ValentinHae/DancePlanner/blob/main/TelegramBot/Event.ts)
 
-Source-Code of the Bot: https://github.com/ValentinHae/DancePlanner/blob/main/TelegramBot/mod.ts
+Source-Code of the Bot: https://github.com/ValentinHae/DancePlanner/blob/main/TelegramBot/bot.ts
 ### Einarbeitung in Deno & Telegram-Bot & Grammy
 
 
 
-### Plannung der Conversationen mit Nutzer und Plannung der Datenspeicherung
+### Plan of Bot-User Conversationen
 	/start --> "Hi, ... you can use the following commands:
 			1. /help 
 			2. /createEvent"
