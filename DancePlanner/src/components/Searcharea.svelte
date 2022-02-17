@@ -198,7 +198,7 @@
 </form>
 
 <div class="randombutton">
-    <button on:click={() => {randomDance(); typeaheadDance();}}><strong>Zufälligen Tanzstil erkunden</strong></button>
+    <button on:click={() => {randomDance(); typeaheadDance(); searchComplete()}}><strong>Zufälligen Tanzstil erkunden</strong></button>
 </div>
 
 <form autocomplete="off" action="/action_page.php">
