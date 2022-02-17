@@ -6,12 +6,13 @@
   import Cards from "@/components/Cards.svelte"
   import Map from "@/components/Maps.svelte"
   import Footer from "@/components/Footer.svelte"
+  import Searcharea from "@/components/Searcharea.svelte"
 </script>
 
 <main transition:fade>
   <Navbar />
   <Banner />
-  <Search />
+  <Searcharea />
   <Cards />
   <Map />
   <Footer />
