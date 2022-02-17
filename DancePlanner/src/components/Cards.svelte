@@ -4,14 +4,17 @@
 
     let url = "https://raw.githubusercontent.com/ValentinHae/DancePlanner/main/Events.json";
 
+    /** fetch events json from github */
     let events_json_promise = fetch(url)
         .then(res => res.json())
         .then((out) => {
-            console.log('fetched json from ' + url);
-            return out
+            //fetch and json promise resolved
+            console.log('Fetched events from ' + url);
+            return out  //returns promise for events json
         })
         .catch(err => { throw err });
     
+    /** filte events json with style and city*/
     function searchEvents(json_promise, style_filter, city_filter) {
         console.log('Searching for: ' + style_filter + ' in ' +city_filter)
         return json_promise.then((events_json) => {
