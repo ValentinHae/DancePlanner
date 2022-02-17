@@ -9,7 +9,7 @@
   function useCurrentLoacation() {    
       navigator.geolocation.getCurrentPosition((position) => {
           lat     = position.coords.latitude;
-          long    = position.coords.longitude;
+          lon    = position.coords.longitude;
           map.setView([lat,lon], 13);
       })
   }
