@@ -1,5 +1,5 @@
-<script>
-    let src = 'Banner.png';
+<script lang="ts">
+    let src: string= 'Banner.png';
 </script>
 
 <header>

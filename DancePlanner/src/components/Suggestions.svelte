@@ -1,5 +1,5 @@
-<script>
-    export let suggestionComponent;
+<script lang="ts">
+    export let suggestionComponent: string;
 </script>
 
 <li class="typeahead-objects" on:mousedown>{suggestionComponent} </li>
