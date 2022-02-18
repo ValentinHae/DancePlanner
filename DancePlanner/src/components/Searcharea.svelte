@@ -20,6 +20,7 @@
     let citynamesNew = [];
     let citynamesSearch = "";
     let range = 55;
+    let key;
   
     function searchComplete() {
         $rangeStore = range;
@@ -61,8 +62,28 @@
         let randomDancestyle = dancestyles[Math.floor(Math.random()*dancestyles.length)]
         dancestylesSearch = randomDancestyle
     }
-    
+
+    function handleKeydown(event) {
+		  key = event.key;
+      if (key == "Enter") {
+        searchComplete()
+        onBlurDance()
+        onBlurCity()
+      }
+      if (key == "Backspace") {
+        searchComplete()
+      }
+	  }
 </script>
+
+<p>{$dancestyleSearchStore}</p>
+<div style="text-align: center">
+	{#if key}
+		<kbd>{key === ' ' ? 'Space' : key}</kbd>
+	{:else}
+		<p>Focus this window and press any key</p>
+	{/if}
+</div>
 
 {#if onLoad && visible}
 	<h1 class="load" in:fly="{{ y: 100, duration: 700 }}" out:fade>
@@ -70,43 +91,41 @@
   </h1>
 {/if}
 
-<form autocomplete="off" action="/action_page.php">
-    <div class="typeahead"> 
-      <input id="dancestyle" type="text" name="dancestyle" placeholder="Tanzstil" bind:value={dancestylesSearch} on:input={typeaheadDance} on:focus={onFocusDance} on:blur={() => {onBlurDance();searchComplete()}}>
-    </div>
-    <ul class="typeahead-object-list" >
-      {#if isFocusedDance === true}
-        {#if dancestylesSearch.length === 0}
-          {#each dancestyles as dancestyle}
-            <Objects suggestionComponent={dancestyle} on:mousedown={() => {newSearchInputDance(dancestyle);searchComplete()}} />
-          {/each}
-        {:else}
-          {#each dancestylesNew as dancestyle}
-            <Objects suggestionComponent={dancestyle} on:mousedown={() => {newSearchInputDance(dancestyle);searchComplete()}} />
-          {/each}
-        {/if}
-      {/if}
-    </ul>
-</form>
+
+<div class="typeahead"> 
+  <input id="dancestyle" type="text" name="dancestyle" placeholder="Tanzstil" bind:value={dancestylesSearch} on:input={typeaheadDance} on:focus={onFocusDance} on:blur={() => {onBlurDance();searchComplete()}} on:keydown={handleKeydown}>
+</div>
+<ul class="typeahead-object-list" >
+  {#if isFocusedDance === true}
+    {#if dancestylesSearch.length === 0}
+      {#each dancestyles as dancestyle}
+        <Objects suggestionComponent={dancestyle} on:mousedown={() => {newSearchInputDance(dancestyle);searchComplete()}} />
+      {/each}
+    {:else}
+      {#each dancestylesNew as dancestyle}
+        <Objects suggestionComponent={dancestyle} on:mousedown={() => {newSearchInputDance(dancestyle);searchComplete()}} />
+      {/each}
+    {/if}
+  {/if}
+</ul>
 
 <div class="randombutton">
     <button on:click={() => {randomDance(); typeaheadDance(); searchComplete()}}><strong>Zufälligen Tanzstil erkunden</strong></button>
 </div>
 
-<form autocomplete="off" action="/action_page.php">
-    <div class="typeahead">
-      <input id="stadt" type="text" name="stadt" placeholder="Stadt" bind:value={citynamesSearch} on:input={typeaheadCity} on:focus={onFocusCity} on:blur={() => {onBlurCity();searchComplete()}}>
-    </div>
-    <ul class="typeahead-object-list">
-      {#if isFocusedCity === true}
-        {#if citynamesSearch.length !== 0}
-            {#each citynamesNew as city}
-                <Objects suggestionComponent={city} on:mousedown={() => {newSearchInputCity(city);searchComplete()}} />
-            {/each}
-        {/if}
-      {/if}
-    </ul>
-</form>
+<div class="typeahead">
+  <input id="stadt" type="text" name="stadt" placeholder="Stadt" bind:value={citynamesSearch} on:input={typeaheadCity} on:focus={onFocusCity} on:blur={() => {onBlurCity();searchComplete()}} on:keydown={handleKeydown}>
+</div>
+
+<ul class="typeahead-object-list">
+  {#if isFocusedCity === true}
+    {#if citynamesSearch.length !== 0}
+        {#each citynamesNew as city}
+            <Objects suggestionComponent={city} on:mousedown={() => {newSearchInputCity(city);searchComplete()}} />
+        {/each}
+    {/if}
+  {/if}
+</ul>
 
 <div class="slidecontainer">
     <p>Umkreis: {range}km</p>

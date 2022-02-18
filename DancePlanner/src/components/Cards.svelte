@@ -24,7 +24,7 @@
         return json_promise.then((events_json) => {
             if (style_filter == 'All Dance Styles') 
                 style_filter = '';
-            city = citylist.find((city) => city.name === city_filter);
+            city = citylist.find((city) => city.name.toLocaleLowerCase() === city_filter.toLocaleLowerCase());
             let data_filtered = events_json.filter(filterDances(city_filter, style_filter, range_filter, city))
             //console.log('Found events: ' + data_filtered)
             
