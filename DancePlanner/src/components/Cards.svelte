@@ -38,7 +38,7 @@
             let isMatch = true;
             if (!range_filter) range_filter = 55;
             if (!style_filter) style_filter = '';   
-            if(city_filter)
+            if(city_filter && city !== undefined)
             {
                 //console.log('applied city filter')
                 isMatch &&= range_filter >= DistanceCalculator.getDistanceInKilometers(element.lat, element.lon, city.lat, city.lon);   //search in area around city

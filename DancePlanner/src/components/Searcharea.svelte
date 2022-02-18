@@ -236,7 +236,7 @@
       width: 65%;
   }
   ul {
-  max-height: 215px;
+  max-height: 219px;
   overflow: auto;
   }
   ul.typeahead-object-list {

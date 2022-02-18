@@ -1,7 +1,7 @@
 <div class="navbar">
   <ul>
-    <img id="logo"src="DanceLogo.svg" alt="Logo" height=32px href="danceplanner.asp">
-    <li id="r"><a href="https://t.me/Dance_Event_Planning_Bot">Telegram</a></li>
+    <a href="#"><img id="logo"src="DanceLogo.svg" alt="Logo" height=32px></a>
+    <li id="telegram"><a href="https://t.me/Dance_Event_Planning_Bot" id="navbar-button">Telegram</a></li>
   </ul>
 </div>
 
@@ -25,13 +25,13 @@
       display: block;
       float: left;
   }
-  a {
-    display: block;
+  #navbar-button {
+    display: inline-block;
     padding: 10px;
     color: white;
   }
 
-  #r {
+  #telegram {
     float: right;
   }
 
