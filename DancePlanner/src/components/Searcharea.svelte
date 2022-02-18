@@ -133,7 +133,7 @@
   />
 
 <style>
-    h1 {
+  h1 {
     color: black;
     text-transform: uppercase;
     font-size: 4em;
@@ -200,6 +200,11 @@
     background: rgb(149,65,131,0.3);
     background: linear-gradient(90deg, rgba(149,65,131,0.3) 0%, rgba(191,166,227,0.3) 25%, rgba(125,185,241,0.3) 75%, rgba(68,109,137,0.3) 100%);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+  @media only screen and (max-width: 600px) {
+    button{
+      font-size: 12px;
+    }
   }
   button:hover{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 8px, rgba(0, 0, 0, 0.23) 0px 4px 8px;

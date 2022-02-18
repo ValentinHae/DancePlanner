@@ -4,7 +4,9 @@
     export let title, lon, lat, dances, city, street, housenumber, date, time;
 </script>
 
-<div class="flip-card">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <div class="flip-card">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <p id="title">
@@ -33,19 +35,32 @@
   </div>
 
 <style>
+
   .flip-card {
     transition: 0.3s;
     width: 35%;
     height: 400px;
     margin-left: 10%;
-    margin-bottom: 200px;
-    display:inline-block;
+    margin-bottom: 100px;
+    display: inline-block;
     background-color: transparent;
-    perspective: 1000px; 
+    perspective:1000px;
   }
 
   #title {
     font-size: 40px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .flip-card {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width:70%;
+    }
+    #title {
+    font-size: 35px;
+    }
   }
 
   .flip-card-inner {
