@@ -155,6 +155,14 @@
     text-align: center;
     margin: 1em; 
   }
+  @media only screen and (max-width: 600px) {
+    h1{
+      font-size: 2em;
+    }
+    h2{
+      font-size: 2em;
+    }
+  }
   .slidecontainer {
   width: 100%;
   margin-bottom: 4em;
