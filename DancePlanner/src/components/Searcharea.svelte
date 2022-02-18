@@ -76,21 +76,11 @@
 	  }
 </script>
 
-<p>{$dancestyleSearchStore}</p>
-<div style="text-align: center">
-	{#if key}
-		<kbd>{key === ' ' ? 'Space' : key}</kbd>
-	{:else}
-		<p>Focus this window and press any key</p>
-	{/if}
-</div>
-
 {#if onLoad && visible}
 	<h1 class="load" in:fly="{{ y: 100, duration: 700 }}" out:fade>
 		Tanzevents suchen
   </h1>
 {/if}
-
 
 <div class="typeahead"> 
   <input id="dancestyle" type="text" name="dancestyle" placeholder="Tanzstil" bind:value={dancestylesSearch} on:input={typeaheadDance} on:focus={onFocusDance} on:blur={() => {onBlurDance();searchComplete()}} on:keydown={handleKeydown}>
