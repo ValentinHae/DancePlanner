@@ -11,14 +11,14 @@
         .then(res => res.json())
         .then((out) => {
             //fetch and json promise resolved 
-            console.log('Fetched events from ' + url);
+            //console.log('Fetched events from ' + url);
             return out  //returns promise for events json
         })
         .catch(err => { throw err });
     
     /** filter events json with style and city*/
     function searchEvents(json_promise, style_filter, city_filter, range_filter) {
-        console.log('Searching for: ' + style_filter + ' in ' + city_filter + ' with a range of ' + range_filter)
+        // console.log('Searching for: ' + style_filter + ' in ' + city_filter + ' with a range of ' + range_filter)
         let city;
         
         return json_promise.then((events_json) => {
@@ -26,7 +26,7 @@
                 style_filter = '';
             city = citylist.find((city) => city.name === city_filter);
             let data_filtered = events_json.filter(filterDances(city_filter, style_filter, range_filter, city))
-            console.log('Found events: ' + data_filtered)
+            //console.log('Found events: ' + data_filtered)
             
             // return data_filtered
             return data_filtered
@@ -40,15 +40,15 @@
             if (!style_filter) style_filter = '';   
             if(city_filter)
             {
-                console.log('applied city filter')
+                //console.log('applied city filter')
                 isMatch &&= range_filter >= DistanceCalculator.getDistanceInKilometers(element.lat, element.lon, city.lat, city.lon);   //search in area around city
                 isMatch ||= element.city.toLowerCase().includes(city_filter.toLowerCase()); //include also events with same city name even they are outside the area
-                console.log('distance: ',DistanceCalculator.getDistanceInKilometers(element.lat, element.lon, city.lat, city.lon))
-                console.log(element.lat, city.lat, element.lon, city.lon)
+                //console.log('distance: ',DistanceCalculator.getDistanceInKilometers(element.lat, element.lon, city.lat, city.lon))
+                //console.log(element.lat, city.lat, element.lon, city.lon)
             }
             if(style_filter)
             {
-                console.log('applied style_filter')
+                //console.log('applied style_filter')
                 isMatch &&= element.dances.toLowerCase().includes(style_filter.toLowerCase())
             }
             return isMatch;
