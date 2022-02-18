@@ -38,7 +38,8 @@ After the process is finished you will receive a confirmation and head over to o
 We hope you have a nice time and a lot of fun dancing.
 
 ## Deploying of the Application 
-
+### Website
+Visit us on our new Webpage: [Dance-Planner](https://danceplanner.herokuapp.com/)<br />
 ### Telegrambot
 Add the Telegrambot on Telegram: [@Dance_Event_Planning_Bot](https://t.me/Dance_Event_Planning_Bot) <br />
 Hosted by: Deno Deploy (If the Bot doesn`t reply please start him, by visiting https://dance-planner.deno.dev/)
