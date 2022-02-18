@@ -1,14 +1,18 @@
 <script>
   import * as L from 'https://cdn.skypack.dev/leaflet';
 
-  export let map;
+
+  let map;
   export let lat = 38.897957;
   export let lon = -77.036560;
   export let button = true;
 
-  function useCurrentLoacation() {    
+  
+
+  function useCurrentLocation() {    
       navigator.geolocation.getCurrentPosition((position) => {
-          lat     = position.coords.latitude;
+          console.log(lat);
+          lat    = position.coords.latitude;
           lon    = position.coords.longitude;
           map.setView([lat,lon], 13);
       })
@@ -55,7 +59,7 @@
 </svelte:head>
 
 {#if button === true}
-  <button on:click={useCurrentLoacation}>
+  <button on:click={useCurrentLocation}>
     <strong>
       Mein Standort
     </strong>
