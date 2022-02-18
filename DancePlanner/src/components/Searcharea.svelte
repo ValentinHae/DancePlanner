@@ -211,7 +211,7 @@
   }
   @media only screen and (max-width: 600px) {
     button{
-      font-size: 12px;
+      font-size: 10px;
     }
   }
   button:hover{
