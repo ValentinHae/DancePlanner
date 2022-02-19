@@ -183,8 +183,29 @@ BOT.on("message", async (ctx) => {
                     );
                     ctx.session.currentQuestionId = ctx.msg.message_id;
                 };
-                // Lat-Attribute
+                // Long-Attribute
                 if (ctx.session.buffer.length == 8) {
+                    await ctx.reply(
+                        `Please Provide the Latitude of the Event?\n If you need help to get the Lat & Long feel free to visit: https://www.latlong.net/convert-address-to-lat-long.html`, {
+                            reply_markup: {
+                                force_reply: true
+                            },
+                        }
+                    );
+                    ctx.session.currentQuestionId = ctx.msg.message_id;
+                };
+                if (ctx.session.buffer.length == 9) {
+                    await ctx.reply(
+                        `Please Provide the Longitude of the Event?`, {
+                            reply_markup: {
+                                force_reply: true
+                            },
+                        }
+                    );
+                    ctx.session.currentQuestionId = ctx.msg.message_id;
+                };
+                // Link-Attribute
+                if (ctx.session.buffer.length ==10) {
                     await ctx.reply(
                         `Could you please provide an Link to the Event (or let it empty)?`, {
                             reply_markup: {
@@ -194,7 +215,7 @@ BOT.on("message", async (ctx) => {
                     );
                     ctx.session.currentQuestionId = ctx.msg.message_id;
                 };
-                if (ctx.session.buffer.length == 9) {
+                if (ctx.session.buffer.length == 11) {
                     // Create new ID:""}
                     let cryptoID: string = crypto.randomUUID() as string;
                     // Storage of the single Parts of the new Object
@@ -205,12 +226,12 @@ BOT.on("message", async (ctx) => {
                         startDate: ctx.session.buffer[2],
                         city: ctx.session.buffer[3],
                         countryCode: ctx.session.buffer[4],
-                        lat: 0,
-                        lon: 0,
+                        lat: Number(ctx.session.buffer[8]),
+                        lon: Number(ctx.session.buffer[9]),
                         street: ctx.session.buffer[5],
                         housenumber: ctx.session.buffer[6],
                         startTime: ctx.session.buffer[7],
-                        link: ctx.session.buffer[8],
+                        link: ctx.session.buffer[10],
                         chatLink: ""
                     };
                     let response = await updateContent(NewEvent, GITHUB);
