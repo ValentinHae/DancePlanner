@@ -59,10 +59,10 @@
 </svelte:head>
 
 {#if button === true}
-  <button on:click={useCurrentLocation}>
-    <strong>
-      Mein Standort
-    </strong>
+  <button id="big-map" on:click={useCurrentLocation}>
+      <strong>
+        Mein Standort
+      </strong>
   </button>
 {/if}
 

@@ -122,10 +122,10 @@
     <input type="range" min="10" max="100" bind:value={range} step="1" class="slider" id="range" on:mouseup={searchComplete}>
 </div>
 
-<div class="output">
-    <hr>
-    <h2>Alle Tanzevents</h2>
-  </div>
+<div id="all-dances" class="output">
+  <hr>
+  <h2>Alle Tanzevents</h2>
+</div>
   
   <link
     href="https://fonts.googleapis.com/css?family=Overpass:100,400"
