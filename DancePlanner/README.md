@@ -7,8 +7,8 @@ Development of the web application using the svelte framework and its functional
 - App.svelte is build as the “hub”, to combine all combined fractions of the website. In it, every other needed svelte-component is imported and used.
 - Navbar.svelte is the svelte-component for the Navigation Bar on the top of the website. Inside of it, the logo and possible links to different websites/subpages can and will be stored.
 - Banner.svelte serves the purpose of styling the Banner of the website.
-- Searcharea.svelte combines all Text-inputs and the slider, in order to receive the users desired search inputs. The Text-inputs themselves are other svelte components. A self-written (and published) component with an input field and an additional type-ahead functionality is imported for the dancestyle-input (Typeaheaddance.svelte) and the city-input (Typeaheadcity.svelte)
-    - Typeaheaddance.svelte and Typeaheadcity.svelte use the Suggestions.svelte file, to dynamically create all suggestions while typing in the input-field
+- Searcharea.svelte combines all Text-inputs and the slider, in order to receive the users desired search inputs. The Text-inputs themselves are other svelte components. A self-written (and published) component with an input field and an additional type-ahead functionality is implemented in this file.
+    - The typeahead parts use the Suggestions.svelte file, to dynamically create all suggestions while typing in the input-field
 - Cards.svelte iterates over a json, and uses the Cardscreate.svelte, to create a card for each event that should be displayed depending on the json received by the back-end
 - Maps.svelte displays a big map on the bottom of the page, which can be used in future developing, it is also used as a component to be used on the back of the cards to display the geolocation of the event
 - Footer.svelte is the component for the Footer down below
