@@ -59,10 +59,10 @@
 </svelte:head>
 
 {#if button === true}
-  <button on:click={useCurrentLocation}>
-    <strong>
-      Mein Standort
-    </strong>
+  <button id="big-map" on:click={useCurrentLocation}>
+      <strong>
+        Mein Standort
+      </strong>
   </button>
 {/if}
 
@@ -88,5 +88,10 @@
   }
   button:hover{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 8px, rgba(0, 0, 0, 0.23) 0px 4px 8px;
+  }
+  @media only screen and (max-width: 600px) {
+    button{
+      font-size: 10px;
+    }
   }
 </style>

@@ -2,7 +2,7 @@
     import Card from "@/components/Cardcreate.svelte"
     import { dancestyleSearchStore, citynamesSearchStore, rangeStore } from "./store.js"
     import { DistanceCalculator } from "https://deno.land/x/distancecalculator/distance-calculator.ts"
-    import { citylist } from "./Data.svelte"
+    import Data, { citylist } from "./Data.svelte"
     
     let url = "https://raw.githubusercontent.com/ValentinHae/DancePlanner/main/Events.json";
 
@@ -26,9 +26,7 @@
                 style_filter = '';
             city = citylist.find((city) => city.name.toLocaleLowerCase() === city_filter.toLocaleLowerCase());
             let data_filtered = events_json.filter(filterDances(city_filter, style_filter, range_filter, city))
-            //console.log('Found events: ' + data_filtered)
-            
-            // return data_filtered
+            // console.log('Found events: ' + data_filtered)
             return data_filtered
         })
     }
@@ -51,6 +49,9 @@
                 //console.log('applied style_filter')
                 isMatch &&= element.dances.toLowerCase().includes(style_filter.toLowerCase())
             }
+            if (city === undefined && $citynamesSearchStore.length !== 0) {
+                isMatch = false;
+            }
             return isMatch;
         }
     }
@@ -59,9 +60,20 @@
 {#await searchEvents(events_json_promise, $dancestyleSearchStore, $citynamesSearchStore, $rangeStore)}
         <p>Waiting</p>        
     {:then events}
+        {#if events.length === 0}
+            <p>Keine Tanzevents mit dem Tanzstil {$dancestyleSearchStore} in der Stadt {$citynamesSearchStore} gefunden</p>
+            <p>Stelle ggf. sicher, dass der Tanzstil und/oder die Stadt richtig geschrieben wurde</p>
+        {/if}
         {#each events as {title, dances ,lon ,lat, city, street, housenumber, startDate, startTime}}
             <Card title={title} dances={dances} lon={lon} lat={lat} city={city} street={street} housenumber={housenumber} date={startDate} time={startTime}/>
         {/each}
     {:catch error}
         <p>FAIL {error.message}</p>
 {/await}
+
+<style>
+    p {
+        text-align: center;
+        margin-bottom: 3em;
+    }
+</style>
