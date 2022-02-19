@@ -6,7 +6,7 @@ Development of the web application using the Grammy framework and its functional
 Source-Code of the Bot: [Source Code](https://github.com/ValentinHae/DancePlanner/blob/main/TelegramBot/bot.ts)<br />
 Source-Code of the Server: [Source-Code](https://github.com/ValentinHae/DancePlanner/blob/main/TelegramBot/mod.ts)<br />
 Providing of Non-public-Enviromental Variables in .env -File:
-(Template for the Env-File: [Tempalte](https://github.com/ValentinHae/DancePlanner/blob/main/.env.template)<br />
+(Template for the Env-File: [Template](https://github.com/ValentinHae/DancePlanner/blob/main/.env.template)<br />
 
 Providing of Project-Interfacce in Events.ts [Event-Class](https://github.com/ValentinHae/DancePlanner/blob/main/TelegramBot/Event.ts)<br />
 
