@@ -166,13 +166,13 @@
   .slidecontainer {
   width: 100%;
   margin-bottom: 4em;
+  margin-top: 4em;
   }
   input[type=range] {
     width: 60%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 2em;
     -webkit-appearance: none;
     appearance: none;
     height: 25px;
@@ -221,7 +221,6 @@
     position: relative;
   }
   input{
-    margin-top: 4em;
     margin-bottom:0;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   }
@@ -236,6 +235,7 @@
     border-radius: 0;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 4em;  
     transition: width 0.4s ease-in-out;
   }
   input[type=text]:focus {
