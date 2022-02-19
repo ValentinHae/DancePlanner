@@ -186,7 +186,7 @@ BOT.on("message", async (ctx) => {
                 // Long-Attribute
                 if (ctx.session.buffer.length == 8) {
                     await ctx.reply(
-                        `Please Provide the Latitude of the Event?`, {
+                        `Please Provide the Latitude of the Event?\n If you need help to get the Lat & Long feel free to visit: https://www.latlong.net/convert-address-to-lat-long.html`, {
                             reply_markup: {
                                 force_reply: true
                             },
